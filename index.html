@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Manager</title>
+    <!-- Material Design icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    rel="stylesheet">    
+    <link rel="stylesheet" href="style.css">
+    <!-- PWA manifest -->
+    <link rel="manifest" href="manifest.json">
+</head>
+<body>
+    <section id="main">
+        <div class="hero is-fullheight is-info">
+            <div class="hero-header centered">
+                <h1 class="title mt-6">
+                    Manejador de Tareas
+                </h1>
+                <p class="subtitle is-size-5">
+                    ¡Agregue, edite y elimine tareas!
+                </p>
+                <p class="subtitle is-size-6 mb-5">
+                    (Las tareas quedan almacenadas en su navegador. Si borra los datos de navegación las perderá completamente)
+                </p>
+                <div class="container">
+                    <div class="columns">
+                        <div class="column centered">
+                            <!-- en este div se añadiràn las tareas (child nodes) -->
+                            <div id="current-tasks"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="columns">
+                        <div class="column is-threequarters centered">
+                            <div class="box">
+                                <form action="submit" method="post">
+                                    <div class="field">
+                                        <label class="label">Título</label>
+                                        <div class="control">
+                                            <input id="task-title" class="input" type="text" name="title" maxlength="30" placeholder="Tarea (máximo 30 caracteres)" required>
+                                        </div>
+                                    </div>
+                                    <div class="field">
+                                        <label class="label">Descripción</label>
+                                        <div class="control">
+                                            <textarea id="task-description" class="textarea" name="description" placeholder="Descripción"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="field">
+                                        <label class="label">Fecha</label>
+                                        <div class="control">
+                                            <input id="task-date" class="input" type="datetime-local" name="date">
+                                        </div>
+                                    </div>
+                                    <div class="field">
+                                        <div class="control wrapper">
+                                            <label class="bold" for="urgent">Urgente</label>
+                                            <input id="task-urgent" type="checkbox" name="urgent">
+                                            <button id="add-task-btn" class="button is-info" type="submit">Agregar</button>
+                                            <!-- botón de editar, aparece únicamente si se está editando una tarea -->
+                                            <button id="update-task-btn" class="button is-info hidden" type="submit">Actualizar tarea</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-footer">
+                <p class="centered mb-5 mt-3">Desarrollado por <a href="https://danielalmenar.com">Dan Almenar Williams</a></p>
+            </div>
+        </div>
+    </section>
+    <script src="index.js"></script>
+</body>
+</html>
